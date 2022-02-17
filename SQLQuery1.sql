@@ -15,3 +15,11 @@ create table employee_payrol(
  Alter table employee_payrol add Gender char;
  UPDATE employee_payrol SET Gender='F' where Id=3 or Id=4 or Id=1;
  select * from employee_payrol;
+ select SUM(Salary) as Totalsalary FROM employee_payrol;
+ select SUM(Salary) as Totalsalary, Gender FROM employee_payrol group by Gender;
+ select SUM(Salary) as Femalesalary FROM employee_payrol where Gender='F';
+ select AVG(Salary) as Avgsalry FROM employee_payrol;
+ select MAX(Salary) as Maximumsalray FROM employee_payrol;
+ select MAX(Salary) as Maximumsalary, Gender FROM employee_payrol group by Gender;
+ select MIN(Salary) as Minimumsalray FROM employee_payrol;
+ select MIN(Salary) as Minimumsalary, Gender FROM employee_payrol group by Gender;
