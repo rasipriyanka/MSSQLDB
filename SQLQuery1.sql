@@ -12,3 +12,6 @@ create table employee_payrol(
  select * from employee_payrol;
  select Salary from employee_payrol where Name='priya' or Name='yesh';
  select * from employee_payrol where StartDate between cast('2021-01-03' as date) and getdate();
+ Alter table employee_payrol add Gender char;
+ UPDATE employee_payrol SET Gender='F' where Id=3 or Id=4 or Id=1;
+ select * from employee_payrol;
