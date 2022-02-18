@@ -31,3 +31,8 @@ create table employee_payrol(
  update employee_payrol set Department ='dpt' where Id in (1,2,3);
  update  employee_payrol set Addres='HYD'   where Id in (4,5);
  select * from employee_payrol;
+ Alter table employee_payrol add Deduction bigint,Taxable bigint not null default(45000),IncomeTax bigint not null default(20000);
+ update employee_payrol set Deduction=5000;
+Alter table employee_payrol add Netpay bigint;
+update employee_payrol set Netpay=Basepay-Deduction;
+
