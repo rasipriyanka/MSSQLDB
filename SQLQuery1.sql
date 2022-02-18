@@ -23,3 +23,11 @@ create table employee_payrol(
  select MAX(Salary) as Maximumsalary, Gender FROM employee_payrol group by Gender;
  select MIN(Salary) as Minimumsalray FROM employee_payrol;
  select MIN(Salary) as Minimumsalary, Gender FROM employee_payrol group by Gender;
+ Alter table employee_payrol add PhoneNumber bigint;
+ Alter table employee_payrol DROP COLUMN Address;
+ Alter table employee_payrol add Addres varchar(250) not null default 'Vijayawada';
+ Alter table employee_payrol add Department varchar(250) not null default 'Manager';
+ update employee_payrol set PhoneNumber=9997778886;
+ update employee_payrol set Department ='dpt' where Id in (1,2,3);
+ update  employee_payrol set Addres='HYD'   where Id in (4,5);
+ select * from employee_payrol;
