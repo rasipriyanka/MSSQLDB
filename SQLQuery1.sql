@@ -49,13 +49,12 @@ StartDate date
 );
 ALTER TABLE EmployeeInfo ADD CONSTRAINT FK_CompanyEmpInfo FOREIGN KEY (CompanyId) REFERENCES Companyname(CompanyId);
 
-create table DepartmentInfo(
+create table EmployeeDepartment(
 DepartId int not null PRIMARY KEY,
 EmpId int,
 DepertName varchar(200),
 );
-Alter table DepartmentInfo add constraint FK_EmpDeprtInfo foreign key(EmpId)references EmployeeInfo(EmpId);
-
+Alter table EmployeeDepartment add constraint FK_EmpDeprtInfo foreign key(EmpId)references EmployeeInfo(EmpId);
 create table payroll_Emp(
 RFERId int not null PRIMARY KEY,
 EmpId int,
@@ -66,18 +65,16 @@ Incometax bigint not null,
 Netpay bigint not null
 );
 ALTER TABLE payroll_Emp ADD CONSTRAINT FK_PayrollEMp FOREIGN KEY(EmpId) REFERENCES EmployeeInfo(EmpId);
- 
  Insert INTO Companyname(CompanyId,ComapenyName)
  values(71,'BL');
-
 INSERT INTO EmployeeInfo(EmpId,CompanyId,EmpName,Empphno,StartDate)values(2013346,71,'priyaa',8887779966,'10-6-2020'),(108978,71,'vedha',9234566789,'11-4-2019'),(201837,71,'yesh',9876556890,'5-6-2018');
-
 select * from EmployeeInfo
-
-INSERT INTO  DepartmentInfo(DepartId,EmpId,DepertName)
+INSERT INTO  EmployeeDepartment(DepartId,EmpId,DepertName)
 values(8,2013346,'admin');
-SELECT * FROM DepartmentInfo
-
+SELECT * FROM EmployeeDepartment
 INSERT INTO payroll_Emp(RFERId,EmpId,Basicpay,Deduction,Tax,Incometax,Netpay)values(13445,2013346,76544,2000,2000,1500,45000),(56789,2013346,50000,2000,2000,1500,450000);
-
-SELECT * FROM payroll_Emp
+SELECT * FROM payroll_Emp;
+select * from EmployeeInfo where STARTDATE BETWEEN CAST('10-6-2020' as date)AND getdate();
+select sum(Netpay) as Totalsum FROM payroll_Emp
+select max(Netpay) as Maxisalary FROM payroll_Emp
+select min(Netpay) as Minmumsalary FROM payroll_Emp
